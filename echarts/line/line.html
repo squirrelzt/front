@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+   <head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telphone=no, email=no" />
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="apple-mobile-web-app-title" content="" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="viewport"content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-itunes-app" content="app-id=" />
+    <meta name="description" content="DESCRIPTION" />
+    <meta name="keywords" content="KEYWORDS" />
+    <meta name="format-detection" content="telephone=no" />
+    <script type="text/javascript" src="./js/echarts.min.js" ></script>
+    <link rel="stylesheet" href="./css/line.css">
+    <title>水果统计</title>
+   </head>
+   <body>
+       <div class="container"></div>
+        <div class="title_bar">水果统计</div>
+       <div class="monitor_frame">
+           <div class="monitor_frame_title">监控台</div>
+       <div id="monitor"></div>
+           <div class="monitor_text">
+               <div class="lay">
+                   <div class="already_completed">
+                       <div class="lable_name">已完成：</div>
+                       <div class="already_completed_value">1,255</div>
+                   </div>
+                   <div class="uncompleted">
+                       <div class="lable_name">未完成：</div>
+                       <div class="uncompleted_value">941</div>
+                   </div>
+                   <div class="exception">
+                       <div class="lable_name">异&nbsp;常：</div>
+                       <div class="exception_value">1,050</div>
+                   </div>
+               </div>
+               <div class="lay">
+                   <div class="on_doing">
+                       <div class="lable_name">进行中：</div>
+                       <div class="on_doing_value">1,050</div>
+                   </div>
+               </div>
+           </div>
+
+       <script type="text/javascript">
+           var dom = document.getElementById("monitor");
+            var myChart = echarts.init(dom);
+            var app = {};
+            option = null;
+            option = {
+                color : ['#FF8C00'],
+                xAxis: {
+                    type: 'category',
+                    boundaryGap: false,
+                    textStyle : {
+                        color : '#999',
+                    },
+                    data: ['01月', '02月', '03月', '04月', '05月', '06月']
+                },
+                yAxis: {
+                    type: 'value'
+                },
+                series: [{
+                    data: [100, 160, 300, 320, 600, 650],
+                    type: 'line',
+                    areaStyle: {}
+                }]
+            };
+            ;
+            if (option && typeof option === "object") {
+                myChart.setOption(option, true);
+            }
+       </script>
+       </div>
+       </div>
+   </body>
+</html>

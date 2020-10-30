@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Animation Effect</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            overflow: hidden;
+            height: 100vh;
+            background: #000;
+        }
+        section {
+            height: 100vh;
+        }
+        img {
+            position: absolute;
+            pointer-events: none;
+            background: #fff;
+            animation: animate 5s linear infinite;
+        }
+        @keyframes animate
+        {
+            0%
+            {
+                transform: scale(0) translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% 
+            {
+                opacity: 1;
+            }
+            90% 
+            {
+                opacity: 1;
+            }
+            100%
+            {
+                transform: scale(1) translateY(-500%) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- <img src="./images/Docker.jpg"/> -->
+    <section></section>
+    <script>
+        const imgs = [
+            './images/Docker.jpg',
+            './images/gitLab.png',
+            './images/Istio.jpg',
+            './images/kubernetes.jpg'
+        ]
+        function createSquare() {
+            const section = document.querySelector('section');
+            const square = document.createElement('img');
+
+            var size = Math.random() * 80;
+
+            square.style.width = 20 + size + 'px';
+            square.style.height = 20 + size + 'px';
+            square.style.top = Math.random() * window.innerHeight + 'px';
+            square.style.left = Math.random() * window.innerWidth + 'px';
+
+
+            const bg = imgs[Math.floor(Math.random() * imgs.length)];
+            // console.log(bg);
+            square.src = bg;
+            // console.log(square);
+            console.log(square)
+
+            section.appendChild(square);
+
+            setTimeout(()=>{
+                square.remove();
+            }, 8000);
+        }
+        setInterval(createSquare, 150);
+        // setInterval(() => {
+        //     createSquare();
+        // }, 150);
+    </script>
+</body>
+</html>
